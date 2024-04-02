@@ -1,0 +1,10 @@
+.options{
+    width: 80%;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.3rem;
+    color: white;
+    background:black;
+}
