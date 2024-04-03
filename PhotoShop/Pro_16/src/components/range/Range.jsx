@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './range.css'
 
 function Range({min,max,value,handleChange}) {
-  console.log(value)
+  
     
 
   return (
@@ -11,7 +11,7 @@ function Range({min,max,value,handleChange}) {
         value={value}
         min={min} 
         max={max}
-        onChange={handleChange}
+        onChange={(e)=>{handleChange(e.target.value)}}
         className='range'/>
       
    

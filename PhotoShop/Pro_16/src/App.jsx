@@ -9,7 +9,7 @@ function App() {
     {
       name:'Brightness',
       property:'brightness',
-      value:0,
+      value:100,
       range:{
         min:0,
         max:200
@@ -26,20 +26,20 @@ function App() {
       },
       unit:'%'
     },
-    // {
-    //   name:'Situration',
-    //   property:'situration',
-    //   value:100,
-    //   range:{
-    //     min:0,
-    //     max:200
-    //   },
-    //   unit:'%'
-    // },
+    {
+      name:'Saturation',
+      property:'saturate',
+      value:100,
+      range:{
+        min:0,
+        max:100
+      },
+      unit:'%'
+    },
     {
       name:'Grayscale',
       property:'grayscale',
-      value:100,
+      value:0,
       range:{
         min:0,
         max:100
@@ -49,7 +49,7 @@ function App() {
     {
       name:'Sepia',
       property:'sepia',
-      value:100,
+      value:0,
       range:{
         min:0,
         max:100
@@ -58,8 +58,8 @@ function App() {
     },
     {
       name:'Hue Rotate',
-      property:'hue rotate',
-      value:100,
+      property:'hue-rotate',
+      value:0,
       range:{
         min:0,
         max:360
@@ -68,13 +68,23 @@ function App() {
     },
     {
       name:'Blur',
-      property:'blue',
-      value:100,
+      property:'blur',
+      value:0,
       range:{
         min:0,
         max:20
       },
-      unit:'deg'
+      unit:'px'
+    },
+    {
+      name:'Opacity',
+      property:'opacity',
+      value:100,
+      range:{
+        min:0,
+        max:100
+      },
+      unit:'%'
     },
   ]
 let[selectedIndex,setSelectedIndex]=useState(0)
@@ -86,13 +96,14 @@ let[selectedIndex,setSelectedIndex]=useState(0)
 
 
 
-  function handleChange({target}){
+  function handleChange(target){
+    // console.log('target',target)
     setOptions(pre=>{
       return pre.map((option,index)=>{
         if(index!==selectedIndex){
           return option
         }
-        return{...option,value:target.vlaue}
+        return{...option,value:target}
       })
     })
   }
@@ -100,12 +111,14 @@ let[selectedIndex,setSelectedIndex]=useState(0)
 
 
   function imgStyle(){
-       const filter=options.map((option)=>{
+       const filters=options.map((option)=>{
         return`${option.property}(${option.value}${option.unit})`
-        return console.log(option.value)
+        
+        
        })
       
-       return{filter:filter.join(' ')}
+       return{filter:filters.join(' ')}
+
   }
   console.log(imgStyle())
   return (
