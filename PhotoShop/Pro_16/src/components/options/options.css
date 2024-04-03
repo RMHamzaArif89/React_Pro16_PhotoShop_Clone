@@ -22,4 +22,10 @@
     outline: none;
     border: none;
     background: black;
+    cursor: pointer;
+  
+}
+.active{
+    color: red;
+    background: #1111117d;
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import './image.css'
 
-function Image() {
+function Image({imgStyle}) {
   return (
     <div className='img'>
-      <img src="/images/img1.jpg" alt="" />
+      <img src="/images/img1.jpg" alt="" style={imgStyle()}/>
     </div>
   )
 }
